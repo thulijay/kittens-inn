@@ -1,0 +1,68 @@
+<div class="row">
+
+	<div class="col-4">
+		<h4 class="mt-2">Make booking</h4>
+		<form action="/booking"  method="POST" >
+			<div class="form-group">
+				<label for="formGroupExampleInput">Kitten name</label>
+				<input type="text" name="name" value="{{name}}" class="form-control {{kittenNameInvalid.style}}" id="formGroupExampleInput" placeholder="eg. Snowy">
+				<div id="" class="invalid-feedback">
+        			{{!-- Please provide a number of days. --}}
+					{{kittenNameInvalid.message}}
+      			</div>
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput2">Days staying</label>
+				<input type="number" value="{{days}}"  name="days" class="form-control {{daysInvalid.style}}" id="formGroupExampleInput2" placeholder="">
+				<div id="" class="invalid-feedback">
+        			{{!-- Please provide a number of days. --}}
+					{{daysInvalid.message}}
+      			</div>
+				
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput2">Arriving on</label>
+				<select name="day" class="form-control {{arrivingOnInvalid.style}}" value="{{day}}" >
+					<option></option>
+					<option>Monday</option>
+					<option>Tuesday</option>
+					<option>Wednesday</option>
+					<option>Thursday</option>
+					<option>Friday</option>
+				</select>
+				<div id="" class="invalid-feedback">
+        			{{!-- Please provide a number of days. --}}
+					{{arrivingOnInvalid.message}}
+      			</div>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary">Make a booking</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-8">
+		<h4 class="mt-2">Bookings</h4>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Days staying</th>
+					<th scope="col">Day arriving on</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each kittens}}
+				<tr>
+					<th scope="row">1</th>
+					<td>{{name}}</td>
+					<td>{{days}}</td>
+					<td>{{arrivingOn}}</td>
+				</tr>
+				{{/each}}
+				
+			</tbody>
+		</table>
+	</div>
+</div>
