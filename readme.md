@@ -1,4 +1,4 @@
-# Lebos Kittens inn
+# Lebo's Kittens inn
 
 Lebo is running a local cattery and people can book their kittens in for up to 10 days at a time while they are going on holiday.
 
