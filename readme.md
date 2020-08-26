@@ -16,10 +16,28 @@ Run the app using `nodemon`.
 
 Ensure you have PostgreSQL installed on your PC.
 
-### Create the database
+If you don't have it installed you  can install it on Ubuntu using  this command.
 
 ```
-createdb kitten_inn
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+```
+
+You will need to create a user  for PostgreSQL that  match the username you are loggin into Ubuntu.
+
+Create a username - `coder` with a password of `pg123`. Enter the password when prompted after executing the `createuser` command. 
+
+```
+sudo -u postgres createuser coder -P;
+```
+
+
+### Create the database
+
+Create the database using  this command.
+
+```
+sudo -u postgres createdb my_products;
 ```
 
 ### Grant access to the database
@@ -30,9 +48,9 @@ Now run *psql* as the *postgres* user:
 sudo -u postgres psql;
 ```
 
-Grant the `coder` user access to the `kitten_inn` database by running this command: 
+Grant the `coder` user (or your specific user) access to the `kitten_inn` database by running this command: 
 
-```
+```sql
 grant all privileges on database kitten_inn to coder;
 ```
 
@@ -42,13 +60,14 @@ Connect to your database using: `psql -d kitten_inn`
 
 ## Database tables
 
+Use the scripts below in `psql` to create the `booking` table.
 
 ### Create the tables we need
 
 ```sql
 create table booking(
 	id serial not null primary key,
-    name text,
+	name text,
 	staying_for int,
 	arriving_on text
 );
@@ -67,6 +86,12 @@ All the bookings:
 
 ```sql
 select * from booking
+```
+
+All the bookings for 3 days or less:
+
+```sql
+select * from booking where days > 3
 ```
 
 All the bookings longer than 3 days:
