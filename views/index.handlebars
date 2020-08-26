@@ -43,6 +43,21 @@
 	<div class="col-8">
 		<h4 class="mt-2">Bookings</h4>
 
+		<div class="mb-2" >
+			<form action="/filter" method="POST" >
+				<strong>Filter:</strong>	
+				<input class="ml-4" type="radio" name="daysFilter" value="all" > All
+				<input class="ml-4" type="radio" name="daysFilter" value="three" > 3 days or less
+				<input class="ml-4" type="radio" name="daysFilter" value="more" > More 3 days
+				<input class="btn btn-warning btn-sm" type="submit" value="Filter">
+			</form>
+			
+
+
+		</div>
+
+
+
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -55,7 +70,7 @@
 			<tbody>
 				{{#each kittens}}
 				<tr>
-					<th scope="row">1</th>
+					<th scope="row">{{id}}</th>
 					<td>{{name}}</td>
 					<td>{{days}}</td>
 					<td>{{arrivingOn}}</td>

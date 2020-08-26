@@ -1,6 +1,5 @@
 const express = require("express");
 
-// npm install --save express-handlebars
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser"); 	// add this line
 const app = express();
@@ -13,18 +12,6 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 const kittens = [
-	{
-		name: "Snowy",
-		days: 7,
-		arrivingOn: "Monday"
-	},
-	{
-		name: "Chips",
-		days: 3,
-		arrivingOn: "Wednesday"
-	},
-
-
 
 ];
 
@@ -35,6 +22,24 @@ app.get("/", function (req, res) {
 
 
 
+app.post("/filter", function (req, res) {
+
+	const daysFilter = req.body.daysFilter;
+
+	let filteredData = kittens;
+	if (daysFilter === "three") {
+		filteredData = kittens.filter(function(kitten) {
+			return kitten.days <= 3;
+		});
+	} else if (daysFilter === "more") {
+		filteredData = kittens.filter(function(kitten) {
+			return kitten.days > 3;
+		});
+	}
+
+	res.render("index", { kittens : filteredData	 });
+});
+
 app.post("/booking", function (req, res) {
 
 	const days = req.body.days && Number(req.body.days);
@@ -43,12 +48,13 @@ app.post("/booking", function (req, res) {
 
 	if (days && name && arrivingOn) {
 		kittens.push({
+			id : kittens.length+1,
 			days,
 			name,
 			arrivingOn
 		});
 		res.redirect("/");
-		
+
 	} else {
 
 		const daysInvalid = days ? {} :
