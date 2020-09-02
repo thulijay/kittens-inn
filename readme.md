@@ -31,13 +31,12 @@ Create a username - `coder` with a password of `pg123`. Enter the password when 
 sudo -u postgres createuser coder -P;
 ```
 
-
 ### Create the database
 
 Create the database using  this command.
 
 ```
-sudo -u postgres createdb my_products;
+sudo -u postgres createdb kitten_inn;
 ```
 
 ### Grant access to the database
@@ -62,7 +61,7 @@ Connect to your database using: `psql -d kitten_inn`
 
 Use the scripts below in `psql` to create the `booking` table.
 
-### Create the tables we need
+### Create the table we need
 
 ```sql
 create table booking(
@@ -72,6 +71,8 @@ create table booking(
 	arriving_on text
 );
 ```
+
+
 
 ### Create the SQL we need
 

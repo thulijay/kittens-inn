@@ -4,7 +4,7 @@
   "description": "Lebo is running a local cattery and people can book their kittens in for up to 10 days at a time while they are going on holiday.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
