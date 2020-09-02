@@ -57,7 +57,6 @@ app.post("/booking", function (req, res) {
 
 	} else {
 
-
 		function validate(value, result) {
 			if (!value) {
 				return result;
