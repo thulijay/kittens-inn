@@ -57,23 +57,28 @@ app.post("/booking", function (req, res) {
 
 	} else {
 
-		const daysInvalid = days ? {} :
-			{
+
+		function validate(value, result) {
+			if (!value) {
+				return result;
+			}
+			return {};
+		}
+
+		const daysInvalid = validate(days, {
+			style: "is-invalid",
+			message: "Enter a valid day"
+		});
+
+		const kittenNameInvalid = validate(name, {
 				style: "is-invalid",
 				message: "Enter a valid day"
-			};
+			});
 
-		const kittenNameInvalid = name ? {} :
-			{
-				style: "is-invalid",
-				message: "Enter a valid day"
-			};
-
-		const arrivingOnInvalid = arrivingOn ? {} :
-			{
+		const arrivingOnInvalid = validate(arrivingOn, {
 				style: "is-invalid",
 				message: "Please select a arrival day"
-			};
+			});
 
 
 		res.render("index", {
