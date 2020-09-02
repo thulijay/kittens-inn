@@ -12,6 +12,18 @@ Clone this repo from GitHub then run `npm install`.
 
 Run the app using `nodemon`.
 
+## Fix the tests
+
+This is a quick introduction to SQL using PostgreSQL.
+
+Fix the tests to learn more about SQL
+
+To run the tests use:
+
+```
+npm test
+```
+
 ## Database setup
 
 Ensure you have PostgreSQL installed on your PC.
