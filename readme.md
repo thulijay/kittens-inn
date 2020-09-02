@@ -142,7 +142,7 @@ Use SQL in your application like this.
 
 ```sql
 
-async function queryDB() {
+ function queryDB() {
 	
 	const param1 = "value";
 
