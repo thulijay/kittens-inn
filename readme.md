@@ -104,13 +104,13 @@ select * from booking
 All the bookings for 3 days or less:
 
 ```sql
-select * from booking where days > 3
+select * from booking where staying_for > 3
 ```
 
 All the bookings longer than 3 days:
 
 ```sql
-select * from booking where days > 3
+select * from booking where staying_for > 3
 ```
 
 ## Link the database to our application
