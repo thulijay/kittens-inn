@@ -92,7 +92,7 @@ To create  booking use:
 
 ```sql
 insert into booking (name, staying_for, arriving_on)
-	values ("Snowy", 3, "Tuesday");
+	values ('Snowy', 3, 'Tuesday');
 ```
 
 All the bookings:
